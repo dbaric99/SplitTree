@@ -14,9 +14,9 @@ model Company {
     id        Int        @id @default(autoincrement())
     guid      String     @unique @default(uuid())
     name      String
-    admins    Admin[]
     employees Employee[]
     courses   Course[]
+    admins    Admin[]
 }
 
 model Admin {
@@ -50,13 +50,13 @@ model Course {
     id             Int            @id @default(autoincrement())
     guid           String         @unique @default(uuid())
     name           String
-    description    String?
-    flags          Flag[]
+    description    String
     company        Company        @relation(fields: [companyId], references: [id])
     companyId      Int
     materials      Material[]
     courseStatuses CourseStatus[]
     testResults    TestResults[]
+    courseFlags    CourseFlag[]
 }
 
 model Material {
@@ -94,6 +94,14 @@ model TestResults {
     isPassed     Boolean?
 }
 
+model CourseFlag {
+    id       Int    @id @default(autoincrement())
+    course   Course @relation(fields: [courseId], references: [id])
+    courseId Int
+    flag     Flag   @relation(fields: [flagId], references: [id])
+    flagId   Int
+}
+
 model Role {
     id       Int        @id @default(autoincrement())
     name     String
@@ -113,7 +121,7 @@ model Type {
 }
 
 model Flag {
-    id      Int      @id @default(autoincrement())
-    name    String
-    courses Course[]
+    id          Int          @id @default(autoincrement())
+    name        String
+    courseFlags CourseFlag[]
 }

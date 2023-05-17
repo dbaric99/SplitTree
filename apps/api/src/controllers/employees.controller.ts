@@ -7,11 +7,11 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { EmployeesService } from './employees.service';
-import { CreateEmployeeDto } from './dto/create-employee.dto';
-import { UpdateEmployeeDto } from './dto/update-employee.dto';
+import { EmployeesService } from 'src/services/employees.service';
+import { CreateEmployeeDto } from 'src/dtos/create-employee.dto';
+import { UpdateEmployeeDto } from 'src/dtos/update-employee.dto';
 import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import { EmployeeEntity } from './entities/employee.entity';
+import { EmployeeEntity } from 'src/entities/employee.entity';
 
 @Controller('employees')
 @ApiTags('Employee')

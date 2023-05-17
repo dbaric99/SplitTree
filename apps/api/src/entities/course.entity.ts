@@ -1,5 +1,5 @@
-import { Course, Flag } from '@prisma/client';
 import { ApiProperty } from '@nestjs/swagger';
+import { Course } from '@prisma/client';
 
 export class CourseEntity implements Course {
   id: number;
@@ -9,11 +9,8 @@ export class CourseEntity implements Course {
   @ApiProperty({ required: true })
   name: string;
 
-  @ApiProperty({ required: false, nullable: true })
+  @ApiProperty({ required: true })
   description: string;
-
-  @ApiProperty({ required: false, default: [] })
-  flags: Flag[];
 
   @ApiProperty({ required: true })
   companyId: number;

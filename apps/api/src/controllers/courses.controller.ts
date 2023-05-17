@@ -7,11 +7,11 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { CoursesService } from './courses.service';
-import { CreateCourseDto } from './dto/create-course.dto';
-import { UpdateCourseDto } from './dto/update-course.dto';
+import { CoursesService } from 'src/services/courses.service';
+import { CreateCourseDto } from 'src/dtos/create-course.dto';
+import { UpdateCourseDto } from 'src/dtos/update-course.dto';
 import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import { CourseEntity } from './entities/course.entity';
+import { CourseEntity } from 'src/entities/course.entity';
 
 @Controller('courses')
 @ApiTags('Course')

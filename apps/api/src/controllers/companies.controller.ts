@@ -7,11 +7,11 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { CompaniesService } from './companies.service';
-import { CreateCompanyDto } from './dto/create-company.dto';
-import { UpdateCompanyDto } from './dto/update-company.dto';
+import { CompaniesService } from 'src/services/companies.service';
+import { CreateCompanyDto } from 'src/dtos/create-company.dto';
+import { UpdateCompanyDto } from 'src/dtos/update-company.dto';
 import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import { CompanyEntity } from './entities/company.entity';
+import { CompanyEntity } from 'src/entities/company.entity';
 
 @Controller('companies')
 @ApiTags('Company')
