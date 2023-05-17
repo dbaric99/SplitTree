@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   ParseIntPipe,
+  NotFoundException,
 } from '@nestjs/common';
 import { EmployeesService } from 'src/services/employees.service';
 import { CreateEmployeeDto } from 'src/dtos/create-employee.dto';
@@ -33,8 +34,12 @@ export class EmployeesController {
 
   @Get(':id')
   @ApiOkResponse({ type: EmployeeEntity })
-  findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.employeesService.findOne(+id);
+  async findOne(@Param('id', ParseIntPipe) id: number) {
+    const employee = await this.employeesService.findOne(id);
+    if (!employee) {
+      throw new NotFoundException(`Employee with ${id} does not exist.`);
+    }
+    return employee;
   }
 
   @Patch(':id')
@@ -43,12 +48,12 @@ export class EmployeesController {
     @Param('id', ParseIntPipe) id: number,
     @Body() updateEmployeeDto: UpdateEmployeeDto,
   ) {
-    return this.employeesService.update(+id, updateEmployeeDto);
+    return this.employeesService.update(id, updateEmployeeDto);
   }
 
   @Delete(':id')
   @ApiOkResponse({ type: EmployeeEntity })
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.employeesService.remove(+id);
+    return this.employeesService.remove(id);
   }
 }

@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   ParseIntPipe,
+  NotFoundException,
 } from '@nestjs/common';
 import { CompaniesService } from 'src/services/companies.service';
 import { CreateCompanyDto } from 'src/dtos/create-company.dto';
@@ -33,8 +34,12 @@ export class CompaniesController {
 
   @Get(':id')
   @ApiOkResponse({ type: CompanyEntity })
-  findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.companiesService.findOne(+id);
+  async findOne(@Param('id', ParseIntPipe) id: number) {
+    const company = await this.companiesService.findOne(id);
+    if (!company) {
+      throw new NotFoundException(`Company with ${id} does not exist.`);
+    }
+    return company;
   }
 
   @Patch(':id')
@@ -43,12 +48,12 @@ export class CompaniesController {
     @Param('id', ParseIntPipe) id: number,
     @Body() updateCompanyDto: UpdateCompanyDto,
   ) {
-    return this.companiesService.update(+id, updateCompanyDto);
+    return this.companiesService.update(id, updateCompanyDto);
   }
 
   @Delete(':id')
   @ApiOkResponse({ type: CompanyEntity })
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.companiesService.remove(+id);
+    return this.companiesService.remove(id);
   }
 }

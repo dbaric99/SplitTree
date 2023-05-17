@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   ParseIntPipe,
+  NotFoundException,
 } from '@nestjs/common';
 import { AdminsService } from 'src/services/admins.service';
 import { CreateAdminDto } from 'src/dtos/create-admin.dto';
@@ -33,8 +34,12 @@ export class AdminsController {
 
   @Get(':id')
   @ApiOkResponse({ type: AdminEntity })
-  findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.adminsService.findOne(+id);
+  async findOne(@Param('id', ParseIntPipe) id: number) {
+    const admin = await this.adminsService.findOne(id);
+    if (!admin) {
+      throw new NotFoundException(`Admin with ${id} does not exist.`);
+    }
+    return admin;
   }
 
   @Patch(':id')
@@ -43,12 +48,12 @@ export class AdminsController {
     @Param('id', ParseIntPipe) id: number,
     @Body() updateAdminDto: UpdateAdminDto,
   ) {
-    return this.adminsService.update(+id, updateAdminDto);
+    return this.adminsService.update(id, updateAdminDto);
   }
 
   @Delete(':id')
   @ApiOkResponse({ type: AdminEntity })
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.adminsService.remove(+id);
+    return this.adminsService.remove(id);
   }
 }
