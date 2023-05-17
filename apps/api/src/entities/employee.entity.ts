@@ -18,6 +18,9 @@ export class EmployeeEntity implements Employee {
   @ApiProperty({ required: true })
   password: string;
 
+  @ApiProperty({ required: true })
+  salt: string;
+
   @ApiProperty({ required: false, nullable: true })
   roleId: number;
 

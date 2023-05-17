@@ -18,6 +18,9 @@ export class AdminEntity implements Admin {
   email: string;
 
   @ApiProperty({ required: true })
+  salt: string;
+
+  @ApiProperty({ required: true })
   password: string;
 
   @ApiProperty({ required: false, default: false })

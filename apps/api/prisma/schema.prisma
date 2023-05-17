@@ -24,6 +24,7 @@ model Admin {
     guid         String  @unique @default(uuid())
     firstName    String
     lastName     String
+    salt         String
     password     String
     email        String
     isSuperAdmin Boolean @default(false)
@@ -38,6 +39,7 @@ model Employee {
     lastName       String
     email          String
     password       String
+    salt           String
     role           Role           @relation(fields: [roleId], references: [id])
     roleId         Int
     company        Company        @relation(fields: [companyId], references: [id])
