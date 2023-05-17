@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { EmployeesService } from 'src/services/employees.service';
 import { CreateEmployeeDto } from 'src/dtos/create-employee.dto';
@@ -32,14 +33,14 @@ export class EmployeesController {
 
   @Get(':id')
   @ApiOkResponse({ type: EmployeeEntity })
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id', ParseIntPipe) id: number) {
     return this.employeesService.findOne(+id);
   }
 
   @Patch(':id')
   @ApiOkResponse({ type: EmployeeEntity })
   update(
-    @Param('id') id: string,
+    @Param('id', ParseIntPipe) id: number,
     @Body() updateEmployeeDto: UpdateEmployeeDto,
   ) {
     return this.employeesService.update(+id, updateEmployeeDto);
@@ -47,7 +48,7 @@ export class EmployeesController {
 
   @Delete(':id')
   @ApiOkResponse({ type: EmployeeEntity })
-  remove(@Param('id') id: string) {
+  remove(@Param('id', ParseIntPipe) id: number) {
     return this.employeesService.remove(+id);
   }
 }

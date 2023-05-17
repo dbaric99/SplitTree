@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { CoursesService } from 'src/services/courses.service';
 import { CreateCourseDto } from 'src/dtos/create-course.dto';
@@ -32,19 +33,22 @@ export class CoursesController {
 
   @Get(':id')
   @ApiOkResponse({ type: CourseEntity })
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id', ParseIntPipe) id: number) {
     return this.coursesService.findOne(+id);
   }
 
   @Patch(':id')
   @ApiOkResponse({ type: CourseEntity })
-  update(@Param('id') id: string, @Body() updateCourseDto: UpdateCourseDto) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateCourseDto: UpdateCourseDto,
+  ) {
     return this.coursesService.update(+id, updateCourseDto);
   }
 
   @Delete(':id')
   @ApiOkResponse({ type: CourseEntity })
-  remove(@Param('id') id: string) {
+  remove(@Param('id', ParseIntPipe) id: number) {
     return this.coursesService.remove(+id);
   }
 }

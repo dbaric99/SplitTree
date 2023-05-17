@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { AdminsService } from 'src/services/admins.service';
 import { CreateAdminDto } from 'src/dtos/create-admin.dto';
@@ -32,19 +33,22 @@ export class AdminsController {
 
   @Get(':id')
   @ApiOkResponse({ type: AdminEntity })
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id', ParseIntPipe) id: number) {
     return this.adminsService.findOne(+id);
   }
 
   @Patch(':id')
   @ApiOkResponse({ type: AdminEntity })
-  update(@Param('id') id: string, @Body() updateAdminDto: UpdateAdminDto) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateAdminDto: UpdateAdminDto,
+  ) {
     return this.adminsService.update(+id, updateAdminDto);
   }
 
   @Delete(':id')
   @ApiOkResponse({ type: AdminEntity })
-  remove(@Param('id') id: string) {
+  remove(@Param('id', ParseIntPipe) id: number) {
     return this.adminsService.remove(+id);
   }
 }
