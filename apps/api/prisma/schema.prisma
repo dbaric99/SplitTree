@@ -1,0 +1,119 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+//TODO handle standalone tests
+//TODO add more fields as seen fit
+
+model Company {
+    id        Int        @id @default(autoincrement())
+    guid      String     @unique @default(uuid())
+    name      String
+    admins    Admin[]
+    employees Employee[]
+    courses   Course[]
+}
+
+model Admin {
+    id           Int     @id @default(autoincrement())
+    guid         String  @unique @default(uuid())
+    firstName    String
+    lastName     String
+    password     String
+    email        String
+    isSuperAdmin Boolean @default(false)
+    company      Company @relation(fields: [companyId], references: [id])
+    companyId    Int
+}
+
+model Employee {
+    id             Int            @id @default(autoincrement())
+    guid           String         @unique @default(uuid())
+    firstName      String
+    lastName       String
+    email          String
+    password       String
+    role           Role           @relation(fields: [roleId], references: [id])
+    roleId         Int
+    company        Company        @relation(fields: [companyId], references: [id])
+    companyId      Int
+    courseStatuses CourseStatus[]
+    testResults    TestResults[]
+}
+
+model Course {
+    id             Int            @id @default(autoincrement())
+    guid           String         @unique @default(uuid())
+    name           String
+    description    String?
+    flags          Flag[]
+    company        Company        @relation(fields: [companyId], references: [id])
+    companyId      Int
+    materials      Material[]
+    courseStatuses CourseStatus[]
+    testResults    TestResults[]
+}
+
+model Material {
+    id             Int     @id @default(autoincrement())
+    name           String
+    additionalText String?
+    order          Int
+    type           Type    @relation(fields: [typeId], references: [id])
+    typeId         Int
+    url            String
+    course         Course  @relation(fields: [courseId], references: [id])
+    courseId       Int
+}
+
+model CourseStatus {
+    id         Int       @id @default(autoincrement())
+    employee   Employee  @relation(fields: [employeeId], references: [id])
+    employeeId Int
+    course     Course    @relation(fields: [courseId], references: [id])
+    courseId   Int
+    status     Status    @relation(fields: [statusId], references: [id])
+    statusId   Int
+    dueDate    DateTime?
+}
+
+model TestResults {
+    id           Int      @id @default(autoincrement())
+    employee     Employee @relation(fields: [employeeId], references: [id])
+    employeeId   Int
+    course       Course   @relation(fields: [courseId], references: [id])
+    courseId     Int
+    score        Float
+    dateTaken    DateTime
+    passingScore Float?
+    isPassed     Boolean?
+}
+
+model Role {
+    id       Int        @id @default(autoincrement())
+    name     String
+    Employee Employee[]
+}
+
+model Status {
+    id           Int            @id @default(autoincrement())
+    name         String
+    CourseStatus CourseStatus[]
+}
+
+model Type {
+    id       Int        @id @default(autoincrement())
+    name     String
+    Material Material[]
+}
+
+model Flag {
+    id      Int      @id @default(autoincrement())
+    name    String
+    courses Course[]
+}
