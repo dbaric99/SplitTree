@@ -1,1 +1,1 @@
-export * from './globalActionTypes';
+export * from './generalActionTypes';

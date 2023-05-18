@@ -1,20 +1,25 @@
 import { Button, InputField, Title } from '../../components/common-components';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {useNavigate} from 'react-router-dom';
-import { requestUtil } from '../../utils';
 import styles from './LoginPage.module.css';
+import { generalActions } from '../../state/actions';
+import { useDispatch, useSelector } from 'react-redux';
 
 function LoginPage() {
   const navigate = useNavigate();
+  const user = useSelector(state => state.general.user);
+  const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   useEffect(() => {
-    console.log({username, password});
-  }, [username, password]);
+    console.log('user', user);
+  }, [user])
 
   const handleLogin =() => {
-    
+    //TODO - handle url
+    dispatch(generalActions.setUser({username: username, password: password}));
+    //console.log(typeof(generalActions.setUser({username: username, password: password})))
   }
 
   return (

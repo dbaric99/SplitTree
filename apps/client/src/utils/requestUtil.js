@@ -1,13 +1,8 @@
 import axios from 'axios';
-import dotenv from 'dotenv';
 
-dotenv.config();
+const axiosInstance = axios.create();
 
-const axiosInstance = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
-});
-
-async function makeGetRequest(url, config, headers = {}, isAuth = false, isAdmin = false) {
+async function makeGetRequest(url, config = {}) {
     return axiosInstance.get(url, config)
     .then(response => response.data)
     .catch(error => {
@@ -15,7 +10,7 @@ async function makeGetRequest(url, config, headers = {}, isAuth = false, isAdmin
     });
 }
 
-async function makePostRequest(url, config, headers = {}, data, isAuth = false, isAdmin = false) {
+async function makePostRequest(url, data, config = {}) {
     return axiosInstance.post(url, data, config)
         .then(response => response.data)
         .catch(error => {
