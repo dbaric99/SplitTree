@@ -5,6 +5,21 @@ export class AuthEntity {
   accessToken: string;
 
   @ApiProperty()
+  id: number;
+
+  @ApiProperty()
+  guid: string;
+
+  @ApiProperty()
+  username: string;
+
+  @ApiProperty()
+  firstName: string;
+
+  @ApiProperty()
+  lastName: string;
+
+  @ApiProperty()
   isAdmin: boolean;
 
   @ApiProperty()

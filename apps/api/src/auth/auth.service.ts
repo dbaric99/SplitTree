@@ -40,6 +40,11 @@ export class AuthService {
       }),
       isAdmin: isAdmin,
       isSuperAdmin: isAdmin ? admin.isSuperAdmin : false,
+      id: isAdmin ? admin.id : employee.id,
+      guid: isAdmin ? admin.guid : employee.guid,
+      username: isAdmin ? admin.username : employee.username,
+      firstName: isAdmin ? admin.firstName : employee.firstName,
+      lastName: isAdmin ? admin.lastName : employee.lastName,
     };
   }
 }

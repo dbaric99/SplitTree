@@ -1,0 +1,43 @@
+.default-title {
+    font-family: "Inter-Bold";
+    font-size: 24px;
+    font-style: normal;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: var(--navy-blue);
+}
+
+.default-button {
+    display: block;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--red);
+    color: var(--white);
+    font-family: "Inter-SemiBold";
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.input-label {
+    font-family: "Inter-SemiBold";
+    font-size: 16px;
+    line-height: 28px;
+    color: var(--navy-blue);
+    margin-bottom: 3px;
+}
+.input-field {
+    width: 88%;
+    height: 28px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    padding: 10px;
+    font-family: "Inter-Regular";
+    color: var(--navy-blue);
+}
