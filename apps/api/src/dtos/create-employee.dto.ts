@@ -18,6 +18,12 @@ export class CreateEmployeeDto {
   @ApiProperty({ required: false, nullable: true })
   lastName: string;
 
+  @IsNotEmpty()
+  @IsString()
+  @MaxLength(50)
+  @ApiProperty({ required: true })
+  username: string;
+
   @IsEmail()
   @ApiProperty({ required: true })
   email: string;
@@ -29,7 +35,6 @@ export class CreateEmployeeDto {
 
   @IsNotEmpty()
   @IsString()
-  @ApiProperty({ required: true })
   salt: string;
 
   @IsNumber()

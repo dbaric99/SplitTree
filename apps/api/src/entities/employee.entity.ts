@@ -13,6 +13,9 @@ export class EmployeeEntity implements Employee {
   lastName: string | null;
 
   @ApiProperty({ required: true })
+  username: string;
+
+  @ApiProperty({ required: true })
   email: string;
 
   @ApiProperty({ required: true })

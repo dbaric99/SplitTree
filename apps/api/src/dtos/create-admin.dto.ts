@@ -19,6 +19,12 @@ export class CreateAdminDto {
   @ApiProperty()
   lastName: string;
 
+  @IsNotEmpty()
+  @IsString()
+  @MaxLength(50)
+  @ApiProperty({ required: true })
+  username: string;
+
   @IsEmail()
   @ApiProperty({ required: true })
   email: string;
@@ -30,7 +36,6 @@ export class CreateAdminDto {
 
   @IsNotEmpty()
   @IsString()
-  @ApiProperty({ required: true })
   salt: string;
 
   @IsBoolean()

@@ -2,13 +2,17 @@ import { Injectable } from '@nestjs/common';
 import { CreateEmployeeDto } from 'src/dtos/create-employee.dto';
 import { UpdateEmployeeDto } from 'src/dtos/update-employee.dto';
 import { PrismaService } from './prisma.service';
+import { encodePassword } from 'src/utils/bcrypt';
 
 @Injectable()
 export class EmployeesService {
   constructor(private prisma: PrismaService) {}
 
   create(createEmployeeDto: CreateEmployeeDto) {
-    return this.prisma.employee.create({ data: createEmployeeDto });
+    const { hash, salt } = encodePassword(createEmployeeDto.password);
+    return this.prisma.employee.create({
+      data: { ...createEmployeeDto, password: hash, salt },
+    });
   }
 
   findAll() {

@@ -6,28 +6,29 @@ import {
 import { PrismaService } from 'src/services/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import { AuthEntity } from './entity/auth.entity';
+import { encodePassword } from 'src/utils/bcrypt';
 
 @Injectable()
 export class AuthService {
   constructor(private prisma: PrismaService, private jwtService: JwtService) {}
 
-  async login(email: string, password: string): Promise<AuthEntity> {
+  async login(username: string, password: string): Promise<AuthEntity> {
     const admin = await this.prisma.admin.findUnique({
-      where: { email: email },
+      where: { username: username },
     });
     const employee = await this.prisma.employee.findUnique({
-      where: { email: email },
+      where: { username: username },
     });
 
     if (!employee && !admin) {
-      throw new NotFoundException(`No user found for email: ${email}`);
+      throw new NotFoundException(`No user found for username: ${username}`);
     }
 
     const isAdmin = !!admin;
 
     const isPasswordValid = isAdmin
-      ? admin.password === password
-      : employee.password === password;
+      ? admin.password === encodePassword(password, admin.salt).hash
+      : employee.password === encodePassword(password, employee.salt).hash;
 
     if (!isPasswordValid) {
       throw new UnauthorizedException('Invalid password');

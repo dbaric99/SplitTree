@@ -2,13 +2,17 @@ import { Injectable } from '@nestjs/common';
 import { CreateAdminDto } from 'src/dtos/create-admin.dto';
 import { UpdateAdminDto } from 'src/dtos/update-admin.dto';
 import { PrismaService } from './prisma.service';
+import { encodePassword } from 'src/utils/bcrypt';
 
 @Injectable()
 export class AdminsService {
   constructor(private prisma: PrismaService) {}
 
   create(createAdminDto: CreateAdminDto) {
-    return this.prisma.admin.create({ data: createAdminDto });
+    const { hash, salt } = encodePassword(createAdminDto.password);
+    return this.prisma.admin.create({
+      data: { ...createAdminDto, password: hash, salt },
+    });
   }
 
   findAll() {
