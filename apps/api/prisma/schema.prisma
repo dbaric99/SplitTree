@@ -7,9 +7,6 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-//TODO handle standalone tests
-//TODO add more fields as seen fit
-
 model Company {
     id        Int        @id @default(autoincrement())
     guid      String     @unique @default(uuid())
@@ -31,6 +28,7 @@ model Admin {
     isSuperAdmin Boolean @default(false)
     company      Company @relation(fields: [companyId], references: [id])
     companyId    Int
+    profileImg   String?
 }
 
 model Employee {
@@ -48,6 +46,7 @@ model Employee {
     companyId      Int
     courseStatuses CourseStatus[]
     testResults    TestResults[]
+    profileImg     String?
 }
 
 model Course {

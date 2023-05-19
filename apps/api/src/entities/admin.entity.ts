@@ -20,6 +20,9 @@ export class AdminEntity implements Admin {
   @ApiProperty({ required: true })
   email: string;
 
+  @ApiProperty()
+  profileImg: string | null;
+
   @ApiProperty({ required: true })
   salt: string;
 
