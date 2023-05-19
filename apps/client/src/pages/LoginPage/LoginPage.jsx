@@ -13,7 +13,7 @@ function LoginPage() {
 
   const handleLogin =() => {
     dispatch(generalActions.setUser({username: username, password: password}));
-    navigate('/dashboard');
+    navigate('/admin/dashboard');
   }
 
   return (
