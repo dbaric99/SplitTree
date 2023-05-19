@@ -7,8 +7,8 @@ function CourseHolder({ classes }) {
   return (
     <div className={classes}>
       {courses.data &&
-        courses.data.map((course, index) => {
-          return <CourseCard key={index} courseData={course} />;
+        courses.data.map((course) => {
+          return <CourseCard key={course.guid} courseData={course} />;
         })}
     </div>
   );

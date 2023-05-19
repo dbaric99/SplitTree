@@ -42,7 +42,7 @@ function AdminDashboard() {
         <div className={styles.subtitlesBar}>
             <Title classes={styles.subtitle}>Latest Activity</Title>
         </div>
-        <CourseHolder className={styles.courseWrapper}/>
+        <CourseHolder classes={styles.courseWrapper}/>
       </div>
       </div>
     </div>

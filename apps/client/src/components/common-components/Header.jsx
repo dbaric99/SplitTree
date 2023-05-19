@@ -7,7 +7,7 @@ import profilePlaceholder from '../../assets/images/placeholder-profile.png';
 function Header({showSearchBar, onSearch}) {
     const user = useSelector(state => state.general.user);
   return (
-    <div className="header-wrapper">
+    <div className="header-wrapper" >
         {showSearchBar && <SearchBar onSearch={onSearch}/>}
         <div className="profile-wrapper">
             <svg width="25px" height="25px" className="notification-icon">
@@ -27,12 +27,12 @@ function Header({showSearchBar, onSearch}) {
 
 Header.propTypes = {
     showSearchBar: PropTypes.bool,
-    onSearch: PropTypes.func
+    onSearch: PropTypes.func,
 }
 
 Header.defaultProps = {
     showSearchBar: false,
-    onSearch: () => {}
+    onSearch: () => {},
 }
 
 export {Header}

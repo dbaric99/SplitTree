@@ -11,7 +11,7 @@ function CourseCard({courseData}) {
         </svg>
         </div>
         <div className='course-details'>
-            <div className='course-name'></div>
+            <div className='course-name'>{courseData?.name || ""}</div>
             <div className='course-flags'></div>
         </div>
     </div>

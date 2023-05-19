@@ -50,6 +50,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    left: 0;
 }
 .logotype-wrapper {
     padding-top: 32px;
@@ -179,4 +182,25 @@
     color: rgba(188, 196, 209, 1);
     font-size: 14px;
     line-height: 24px;
+}
+
+/* Course */
+.course-wrapper {
+    height: 180px;
+    background-color: var(--navy-blue);
+    max-width: 947px;
+    margin-bottom: 26px;
+    border-radius: 12px;
+}
+.dropdown-arrow {
+
+}
+.course-details {
+
+}
+.course-name {
+
+}
+.course-flags {
+
 }

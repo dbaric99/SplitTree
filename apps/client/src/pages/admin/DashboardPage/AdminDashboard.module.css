@@ -35,5 +35,7 @@
 }
 
 .courseWrapper {
-    
+    overflow-x: none;
+    overflow-y: scroll;
+    height: 40vh;
 }
