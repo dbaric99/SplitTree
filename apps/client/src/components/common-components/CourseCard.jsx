@@ -3,7 +3,6 @@ import icons from '../../assets/icons/icons.svg';
 import coursePlaceholder from '../../assets/images/placeholder-course.png';
 
 function CourseCard({courseData}) {
-    console.log("COURSE DATA", courseData);
   return (
     <div className='course-wrapper'>
         <div className='course-details'>

@@ -75,7 +75,7 @@
 .menu-action > svg {
     margin-right: 24px;
 }
-.menu-action:hover {
+.menu-text-active {
     color: var(--navy-blue);
     cursor: pointer;
     font-family: 'Inter-Bold';

@@ -1,5 +1,5 @@
 import { Button, InputField, Title } from '../../components/common-components';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 import styles from './LoginPage.module.css';
 import { generalActions } from '../../state/actions';

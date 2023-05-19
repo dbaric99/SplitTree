@@ -7,7 +7,7 @@ function SearchBar({onSearch}) {
         <svg width="25px" height="25px" className='search-icon'>
             <use href={`${icons}#search`}/>
         </svg>
-        <input type="text" className='search-field' onChange={(e) => onSearch(e)}/>
+        <input type="text" className='search-field' onChange={(e) => onSearch(e)} placeholder='Search'/>
     </div>
   )
 }
