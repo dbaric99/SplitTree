@@ -5,3 +5,4 @@ export * from './SidebarMenu';
 export * from './SearchBar';
 export * from './Header';
 export * from './Card';
+export * from './CourseCard';

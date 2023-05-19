@@ -12,7 +12,6 @@ const setUser = (data, config = {}) => (dispatch) => {
         })
 }
 
-
 export const generalActions = {
     setUser,
 }
