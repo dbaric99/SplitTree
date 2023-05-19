@@ -24,6 +24,9 @@ export class CreateEmployeeDto {
   @ApiProperty({ required: true })
   username: string;
 
+  @ApiProperty()
+  profileImg: string | null;
+
   @IsEmail()
   @ApiProperty({ required: true })
   email: string;

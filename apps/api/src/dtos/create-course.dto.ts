@@ -16,4 +16,7 @@ export class CreateCourseDto {
   @IsNumber()
   @ApiProperty({ required: true })
   companyId: number;
+
+  @ApiProperty({ required: false, nullable: true })
+  coverUrl: string | null;
 }

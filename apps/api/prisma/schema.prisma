@@ -54,6 +54,7 @@ model Course {
     guid           String         @unique @default(uuid())
     name           String
     description    String
+    coverUrl       String?
     company        Company        @relation(fields: [companyId], references: [id])
     companyId      Int
     materials      Material[]
