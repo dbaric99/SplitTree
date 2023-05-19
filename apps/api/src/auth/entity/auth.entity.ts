@@ -23,6 +23,9 @@ export class AuthEntity {
   profileImg: string | null;
 
   @ApiProperty()
+  companyId: number | null;
+
+  @ApiProperty()
   isAdmin: boolean;
 
   @ApiProperty()

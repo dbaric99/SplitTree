@@ -46,6 +46,7 @@ export class AuthService {
       firstName: isAdmin ? admin.firstName : employee.firstName,
       lastName: isAdmin ? admin.lastName : employee.lastName,
       profileImg: isAdmin ? admin.profileImg : employee.profileImg,
+      companyId: isAdmin ? admin.companyId : employee.companyId,
     };
   }
 }
