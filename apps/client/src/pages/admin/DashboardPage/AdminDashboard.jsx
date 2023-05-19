@@ -1,14 +1,13 @@
-import { SidebarMenu, Header, Title, CourseCard } from "../../../components/common-components";
+import { SidebarMenu, Header, Title } from "../../../components/common-components";
 import { Card } from "../../../components/common-components";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./AdminDashboard.module.css";
-import { useEffect } from "react";
 import { courseActions } from "../../../state/actions";
+import { CourseHolder } from ".";
 
 function AdminDashboard() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.general.user);
-    const courses = useSelector(state => state.general.courses);
     dispatch(courseActions.getCoursesForCompany(user.data.companyId));
   return (
     <div className={styles.container}>
@@ -43,11 +42,7 @@ function AdminDashboard() {
         <div className={styles.subtitlesBar}>
             <Title classes={styles.subtitle}>Latest Activity</Title>
         </div>
-        <div className={styles.coursesWrapper}>
-            {courses.data && courses.data.map((course, index) => {
-                return <CourseCard key={index} courseData={course}/>
-            })}
-        </div>
+        <CourseHolder className={styles.courseWrapper}/>
       </div>
       </div>
     </div>
