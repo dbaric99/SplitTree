@@ -26,10 +26,10 @@ export class CoursesController {
     return this.coursesService.create(createCourseDto);
   }
 
-  @Get()
+  @Get(':companyId')
   @ApiOkResponse({ type: [CourseEntity] })
-  findAll() {
-    return this.coursesService.findAll();
+  findAll(@Param('companyId', ParseIntPipe) companyId: number) {
+    return this.coursesService.findAll(companyId);
   }
 
   @Get(':id')

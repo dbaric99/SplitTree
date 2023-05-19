@@ -11,8 +11,8 @@ export class CoursesService {
     return this.prisma.course.create({ data: createCourseDto });
   }
 
-  findAll() {
-    return this.prisma.course.findMany();
+  findAll(companyId: number) {
+    return this.prisma.course.findMany({ where: { companyId } });
   }
 
   findOne(id: number) {
