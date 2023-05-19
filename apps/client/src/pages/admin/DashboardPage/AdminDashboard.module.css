@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+}
+
+.pageWrapper {
+    margin-left: 82px;
+    width: 79%;
+}
+
+.dashboardTitle {
+    color: var(--blue-gray);
+    font-family: "Inter-Bold";
+    font-size: 46px;
+    line-height: 80px;
+    margin-bottom: 48px;
+}
+
+.dashboardTitleHighlight {
+    color: var(--red);
+}
+
+.actionsWrapper {
+    display: flex;
+    margin-bottom: 72px;
+}
+.actionsWrapper > * {
+    margin-right: 48px;
+}
+
+.subtitle {
+    color: var(--blue-gray);
+    font-size: 32px;
+    line-height: 56px;
+    font-family: "Inter-Bold";
+}

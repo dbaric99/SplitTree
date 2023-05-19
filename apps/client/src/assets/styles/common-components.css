@@ -44,7 +44,7 @@
 
 /* Sidebar menu */
 .sidebar-menu-wrapper {
-    width: 276px;
+    width: 21%;
     box-shadow: 0px 2px 8px 0px rgba(30, 30, 30, 0.25);
     height: 100vh;
     display: flex;
@@ -88,4 +88,95 @@
     color: var(--navy-blue);
     cursor: pointer;
     font-family: 'Inter-Bold';
+}
+
+/* Header */
+.header-wrapper {
+    height: 144px;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.search-bar-wrapper {
+    position: relative;
+    margin-top: 48px;
+}
+.search-icon {
+    position: absolute;
+    top: 29%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+}
+.search-field {
+    border: none;
+    background-color: var(--white-blue);
+    height: 48px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 6px 0px rgba(30, 30, 30, 0.15);
+    width: 647px;
+    padding-left: 55px;
+    font-family: "Inter-Regular";
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--blue-gray);
+}
+.profile-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 40px;
+    width: 100%;
+}
+.notification-icon {
+    margin-right: 31px;
+}
+.profile-image {
+    width: 166px;
+    height: 54px;
+    background-color: var(--white-blue);
+    border-radius: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.profile-image > img {
+    width: 55px;
+    height: 52px;
+    border-radius: 64px;
+}
+.profile-image > svg {
+    margin-right: 10px;
+}
+.username {
+    font-family: "Inter-Regular";
+    font-size: 18px;
+    line-height: 32px;
+    color: var(--navy-blue);
+}
+
+/* Card */
+.card-wrapper {
+    display: flex;
+    width: 261px;
+    height: 96px;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0px 4px 6px 0px rgba(161, 161, 161, 0.25);
+    border-radius: 16px;
+}
+.card-icon {
+    margin-left: 35px;
+    margin-right: 20px;
+}
+.card-title {
+    font-family: "Inter-Bold";
+    color: var(--blue-gray);
+    font-size: 16px;
+    line-height: 28px;
+}
+.card-description {
+    font-family: "Inter-Regular";
+    color: rgba(188, 196, 209, 1);
+    font-size: 14px;
+    line-height: 24px;
 }
