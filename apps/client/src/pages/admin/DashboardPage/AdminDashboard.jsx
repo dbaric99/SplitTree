@@ -1,6 +1,4 @@
 import {
-  SidebarMenu,
-  Header,
   Title,
 } from "../../../components/common-components";
 import { Card } from "../../../components/common-components";

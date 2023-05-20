@@ -9,7 +9,7 @@ import { AdminDashboard } from "../pages/admin/DashboardPage";
 import { Error404 } from "../pages/routing";
 import { TeamsPage } from "../pages/admin/TeamsPage";
 import { CoursesPage } from "../pages/admin/CoursesPage";
-import { AdminLayout } from "./layouts";
+import { AdminLayout } from "./Layout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

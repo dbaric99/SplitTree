@@ -1,8 +1,8 @@
 import { SidebarMenu } from "../common-components";
 import { Header } from "../common-components";
-import {PropTypes} from 'prop-types';
+import { Outlet } from "react-router-dom";
 
-function AdminLayout({children}) {
+function AdminLayout() {
   return (
     <div style={{display:'flex'}}>
       <SidebarMenu
@@ -25,20 +25,12 @@ function AdminLayout({children}) {
           },
         ]}
       />
-      <div>
+      <div style={{marginLeft: '82px', width: '79%'}}>
         <Header showSearchBar={true}/>
-        {children}
+        <Outlet/>
       </div>
     </div>
   )
-}
-
-AdminLayout.propTypes = {
-  children: PropTypes.node,
-}
-
-AdminLayout.defaultProps = {
-  children: null,
 }
 
 export {AdminLayout}
