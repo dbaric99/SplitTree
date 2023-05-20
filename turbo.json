@@ -5,7 +5,7 @@
             "cache": false
         },
         "build": {
-            "cache": false,
+            "cache": true,
             "dependsOn": [
                 "^build"
             ],

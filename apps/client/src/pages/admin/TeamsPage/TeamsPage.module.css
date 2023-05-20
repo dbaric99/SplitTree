@@ -1,0 +1,7 @@
+.subtitle {
+    color: var(--blue-gray);
+    font-family: "Inter-Bold";
+    font-size: 32px;
+    line-height: 56px;
+    margin-bottom: 16px;
+}

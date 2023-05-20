@@ -23,11 +23,11 @@ function AdminDashboard() {
           </Title>
           <div className={styles.actionsWrapper}>
             <Card
-              icon="add-team"
+              icon="add"
               title="New Course"
               description="Create new course"
             />
-            <Card icon="add" title="New Team" description="Create a new team" />
+            <Card icon="add-team" title="New Team" description="Create a new team" />
           </div>
           <div className={styles.subtitlesBar}>
             <Title classes={styles.subtitle}>Latest Activity</Title>

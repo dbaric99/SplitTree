@@ -1,0 +1,57 @@
+.subtitle {
+    font-family: "Inter-Bold";
+    color: var(--blue-gray);
+    font-size: 32px;
+    line-height: 56px;
+    margin-top: 56px;
+    margin-bottom: 16px;
+}
+
+.coursesWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    overflow-y: scroll;
+    height: 55vh;
+}
+
+.titleWrapper {
+    position: relative;
+}
+
+.courseWrapper {
+    width: 308px;
+    height: 331px;
+    border-radius: 16px;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
+
+}
+
+.courseName {
+    font-family: "Inter-Bold";
+    font-size: 26px;
+    line-height: 44px;
+    color: var(--navy-blue);
+    margin-left: 24px;
+    margin-top: 24px;
+}
+
+.courseDescription {
+    font-family: "Inter-Regular";
+    font-size: 16px;
+    line-height: 28px;
+    color: var(--blue-gray);
+    margin-left: 24px;
+}
+
+.courseCover {
+    width: 308px;
+    height: 134px;
+}
+
+.editCourse {
+    position: absolute;
+    top: 9px;
+    position: absolute;
+    right: 13px;
+}
