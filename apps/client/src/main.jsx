@@ -14,7 +14,7 @@ const persistor = persistStore(store);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={<Skeleton height='100vh' width='100vw' />} persistor={persistor}>
         <App />
       </PersistGate>
     </Provider>
